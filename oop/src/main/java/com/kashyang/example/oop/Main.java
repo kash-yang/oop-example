@@ -1,9 +1,17 @@
 package com.kashyang.example.oop;
 
+import com.kashyang.example.oop.ball.Baseball;
+import com.kashyang.example.oop.ball.Basketball;
+import com.kashyang.example.oop.bike.Bike;
+import com.kashyang.example.oop.bike.PushBike;
 import com.kashyang.example.oop.event.ParkEvent;
 import com.kashyang.example.oop.toy.Barbie;
 import com.kashyang.example.oop.toy.Gundam;
 import com.kashyang.example.oop.toy.Toy;
+import com.kashyang.example.oop.toy.Transformer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args){
@@ -30,11 +38,14 @@ public class Main {
 
 
         ParkEvent parkEvent =
-                new ParkEvent("Da'an Forest Park",
+                new ParkEvent(
+                        new ArrayList<>(List.of(toy1, toy2, new Transformer("bumblebee"),
+                                new Bike(), new PushBike(), new Baseball(), new Basketball()
+                        )),
+                        "Da'an Forest Park",
                         System.currentTimeMillis() + 10L * 3600,
                         "Happy Playing Party!");
 
         parkEvent.playWithToys();
-
     }
 }
