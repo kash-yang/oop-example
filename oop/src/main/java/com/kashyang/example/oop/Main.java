@@ -4,6 +4,10 @@ import com.kashyang.example.oop.event.ParkEvent;
 import com.kashyang.example.oop.toy.Barbie;
 import com.kashyang.example.oop.toy.Gundam;
 import com.kashyang.example.oop.toy.Toy;
+import com.kashyang.example.oop.toy.Transformer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args){
@@ -28,9 +32,10 @@ public class Main {
         toy1.bringJoy(); // play with wing gundam makes me happy
         toy2.bringJoy(); // barbie wants to find kenny, or she doesn't want to play
 
-
         ParkEvent parkEvent =
-                new ParkEvent("Da'an Forest Park",
+                new ParkEvent(
+                        new ArrayList<>(List.of(toy1, toy2, new Transformer("bumblebee"))),
+                        "Da'an Forest Park",
                         System.currentTimeMillis() + 10L * 3600,
                         "Happy Playing Party!");
 
